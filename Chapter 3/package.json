@@ -1,15 +1,16 @@
 {
   "name": "chapter-3",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full stack todo application that uses a NodeJS backend, a SQLite Database and JWT authentication",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "dev":"node --watch --env-file=.env --experimental-strip-types --experimental-sqlite ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "express": "^5.3.0",
