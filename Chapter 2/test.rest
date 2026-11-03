@@ -9,3 +9,14 @@ GET http://localhost:8383/dashboard
 ### API endpoint test
 
 GET http://localhost:8383/api/data
+
+### Data enpoint for adding a user
+POST http://localhost:8383/api/data
+Content-Type: application/json
+
+{
+    "name":"cheetah"
+}
+
+### DELETE ENDPOINT
+DELETE http://localhost:8383/api/data
