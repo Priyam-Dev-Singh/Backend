@@ -12,7 +12,9 @@ const PORT = 8383; //ANY 4 DIGIT NUMBER
 //HTTP VERBS AND ROUTES
 
 app.get('/', (req,res)=>{
+    //as we open the website we come to know that the endpoint was reached by the browser and the output is shown on the screen
     console.log("yay i hit an endpoint boom!!", req.method)
+    res.sendStatus(200)
 })
 
 
