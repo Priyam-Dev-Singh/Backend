@@ -21,24 +21,32 @@ app.use(express.json())
 
 //type 1 website endpoints (visual): send back the html code for the website to load.
 app.get('/', (req,res)=>{
+    console.log("The user requested the homepage of the website")
     //as we open the website we come to know that the endpoint was reached by the browser and the output is shown on the screen
     res.send(`
         <body style = "background:pink; color: blue">
         <h1>Data:</h1>
+        <a href = "/dashboard">Dashboard</a>
         <p>${JSON.stringify(data)}</p>
+        <script>console.log("This is the response script")</script>
         </body>
         `)
 })
 
 app.get('/dashboard', (req, res)=>{
-    res.send('<h1>Dashboard</h1>')
+    res.send(`
+            <body>
+            <h1>Dashboard</h1>
+            <a href = "/">Home</a>
+            </body>
+        `)
 })
 
 //Type -2 API endpoints (non-visual)
 
 app.get('/api/data', (req, res)=>{
     console.log('This one was for data')
-    res.send(data)
+    res.status(200).send(data)
 })
 
 app.post('/api/data', (req, res)=>{
