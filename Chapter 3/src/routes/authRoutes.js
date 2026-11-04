@@ -38,10 +38,21 @@ router.post('/login', (req, res)=>{
     try{
         const getUser = db.prepare(`SELECT * FROM users WHERE username = ?`);
         const user = getUser.get(username);
-
+        console.log("This is who the user is trying to be: ", user);
         if(!user){
             return res.status(404).send({message: "User not found"})
         }
+        //synchronously tests the passwords entered by the user compares to the encrypted password
+        const passwordIsValid = bcrypt.compareSync(password, user.password);
+        
+        if(!passwordIsValid){
+            return res.status(401).send({message: "Invalid Password"});
+        }
+        // if we pass this guard clause means that the user is valid
+        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: '24h'});
+        console.log("token is: ", token);
+        res.json({token})
+        
     }catch(err){
         console.log(err.message);
         res.sendStatus(503);
