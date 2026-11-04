@@ -5,7 +5,7 @@ import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/authRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5003;
 //http://localhost:5000
 //get the file path from the url of the current module
 
