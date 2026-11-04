@@ -2,4 +2,11 @@
 
 GET http://localhost:5000
 
-### register
+### register a user POST auth/register
+POST HTTP://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username":"xyz",
+    "password":"abc"
+}
