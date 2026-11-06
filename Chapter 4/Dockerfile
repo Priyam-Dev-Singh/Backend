@@ -1,6 +1,8 @@
 #Use an official node.js runtime as a parent image
 FROM node:22-alpine
 
+RUN apk add --no-cache openssl
+
 #Set the working directory in the container
 WORKDIR /app
 
